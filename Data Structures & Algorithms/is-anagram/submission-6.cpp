@@ -1,0 +1,21 @@
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        unordered_map<char,int> set1;
+        unordered_map<char,int> set2;
+        if(s.length()!=t.length()){
+            return false;
+        }
+        for(int i=0;i<s.length();i++){
+            set1[s[i]]++;
+        }
+        for(int i=0;i<t.length();i++){
+            set1[t[i]]--;
+
+            if(set1[t[i]]<0){
+                return false;
+            }
+        }
+        return true;
+    }
+};
